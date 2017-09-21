@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ExperTwin</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    .ui-controlgroup-vertical {
+      width: 150px;
+    }
+    .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+    .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+      text-align: center;
+    }
+    #topic-type-button {
+      width: 120px;
+    }
+    .ui-controlgroup-horizontal .ui-spinner-input {
+      width: 20px;
+    }
+
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( ".controlgroup" ).controlgroup()
+    $( ".controlgroup-vertical" ).controlgroup({
+      "direction": "vertical"
+    });
+
+  });
+  </script>
+</head>
+<body bgcolor="#9e9897">
+<div class="widget">
+  <h1>ExperTwin</h1>
+  <fieldset>
+    <legend>Select a Topic</legend>
+    <div class="controlgroup">
+      <select id="topic1-type">
+        <option>topi01</option>
+        <option>topi02</option>
+        <option>topi03</option>
+        <option>topi04</option>
+        <option>topi05</option>
+        <option>topi06</option>
+        <option>topi07</option>
+      </select>
+      <button>Submit</button>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Type a Topic</legend>
+    <div class="controlgroup">
+      <div class="ui-widget">
+        <input id="tags" class="ui-textinput">
+        <button>Submit</button>
+      </div>
+    </div>
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>Topic Sumamry</legend>
+    <div class="controlgroup-vertical">
+      <textarea>topic summary...</textarea>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Graph View</legend>
+    <div class="controlgroup-vertical">
+      <p>d3 graph here...
+    </div>
+  </fieldset>
+</div>
+
+</body>
+</html>
