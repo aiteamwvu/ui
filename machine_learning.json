@@ -1,0 +1,22 @@
+{
+  "00":
+    {"title": "You Might Use AI, But That Doesn't Mean You're an AI Company, Says a Founder of Google Brain ",
+     "link": "https://tech.slashdot.org/story/17/09/19/1941207/you-might-use-ai-but-that-doesnt-mean-youre-an-ai-company-says-a-founder-of-google-brain",
+     "date": "17/09/19"},
+  "01":
+    {"title": "A New Zealand Company Built An AI Baby That Plays the Piano",
+    "link": "https://hardware.slashdot.org/story/17/09/21/2126204/a-new-zealand-company-built-an-ai-baby-that-plays-the-piano",
+    "date": "17/09/21"},
+  "02":
+    {"title": "AI Training Algorithms Susceptible To Backdoors, Manipulation",
+     "link": "https://slashdot.org/story/17/08/27/0553203/ai-training-algorithms-susceptible-to-backdoors-manipulation",
+     "date": "17/09/23"},
+  "03":
+    {"title": "Blizzard and DeepMind Turn StarCraft II Into An AI Research Lab",
+     "link": "https://games.slashdot.org/story/17/08/09/2134218/blizzard-and-deepmind-turn-starcraft-ii-into-an-ai-research-lab",
+     "date": "17/09/09"},
+  "04":
+    {"title": "Google Says AI Better Than Humans At Scrubbing Extremist YouTube Content",
+     "link": "https://news.slashdot.org/story/17/08/01/2046215/google-says-ai-better-than-humans-at-scrubbing-extremist-youtube-content",
+     "date": "17/08/01"}
+}

@@ -1,0 +1,22 @@
+{
+  "00":
+    {"title": "AI Just Made Guessing Your Password a Whole Lot Easier",
+     "link": "https://yro.slashdot.org/story/17/09/18/2054205/ai-just-made-guessing-your-password-a-whole-lot-easier",
+     "date": "17/09/23"},
+  "01":
+    {"title": "Many Machine Learning Studies Don't Actually Show Anything Meaningful, But They Spread Fear, Uncertainty, and Doubt ",
+    "link": "https://science.slashdot.org/story/17/09/15/161250/many-machine-learning-studies-dont-actually-show-anything-meaningful-but-they-spread-fear-uncertainty-and-doubt",
+    "date": "17/09/21"},
+  "02":
+    {"title": "Neural Networks Can Auto-Generate Reviews That Fool Humans",
+     "link": "https://science.slashdot.org/story/17/09/10/0156240/neural-networks-can-auto-generate-reviews-that-fool-humans",
+     "date": "17/09/23"},
+  "03":
+    {"title": "Intel Launches Movidius Neural Compute Stick: 'Deep Learning and AI' On a $79 USB Stick ",
+     "link": "https://tech.slashdot.org/story/17/07/20/1951253/intel-launches-movidius-neural-compute-stick-deep-learning-and-ai-on-a-79-usb-stick",
+     "date": "17/09/20"},
+  "04":
+    {"title": "AI Could Get Smarter By Copying the Neural Structure of a Rat Brain ",
+     "link": "https://science.slashdot.org/story/17/05/30/2118223/ai-could-get-smarter-by-copying-the-neural-structure-of-a-rat-brain",
+     "date": "17/09/20"}
+}

@@ -1,0 +1,22 @@
+{
+  "00":
+    {"title": "The Slashdot Interview With Larry Wall",
+     "link": "https://developers.slashdot.org/story/16/07/14/1349207/the-slashdot-interview-with-larry-wall",
+     "date": "16/07/14"},
+  "01":
+    {"title": "Open Source, Collaborative Rich-Text, Web-Based Editor Almost Available",
+    "link": "https://tech.slashdot.org/story/15/08/27/1818229/open-source-collaborative-rich-text-web-based-editor-almost-available",
+    "date": "15/08/27"},
+  "02":
+    {"title": "Transforming the Web Into a Transparent 'HTTPA' Database",
+     "link": "https://it.slashdot.org/story/14/06/14/2239228/transforming-the-web-into-a-transparent-httpa-database",
+     "date": "14/06/14"},
+  "03":
+    {"title": "Google's Second Brain: How the Knowledge Graph Changes Search",
+     "link": "https://search.slashdot.org/story/12/12/12/2320245/googles-second-brain-how-the-knowledge-graph-changes-search",
+     "date": "12/12/12"},
+  "04":
+    {"title": "Book Review: The Tangled Web",
+     "link": "https://books.slashdot.org/story/12/01/25/2047203/book-review-the-tangled-web",
+     "date": "12/01/25"}
+}

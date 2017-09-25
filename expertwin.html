@@ -26,19 +26,43 @@
 
   $(document).ready(function() {
 
-    $("#topicSelectId").change(function() {
-      alert("change");
+    // var obj = {a: 1, b: 2};
+    // for (var key in obj) {
+    //   if (obj.hasOwnProperty(key)) {
+    //     var val = obj[key];
+    //     console.log(val);
+    //   }
+    // }
+
+    // var obj = {a: 1, b: 2, c: {x: 3, y: 4}};
+    function walk(obj) {
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          var val = obj[key];
+          console.log("key " + key);
+          console.log(" val " + val.title);
+          console.log(" val " + val.link);
+          console.log(" val " + val.date);
+          //walk(val);
+        }
+      }
+    }
+    // walk(obj);
+
+    $.getJSON( "test.json", function( data ) {
+      walk(data);
     });
 
     $("#btSelectId").click(function() {
-      alert("select " + $('#topicSelectId option:selected').val());
+      // alert("select " + $('#topicSelectId option:selected').val());
       // alert("select " + $('#topicSelectId option:selected').text());
+      $("#taListId").val($('#topicSelectId option:selected').val());
     });
 
     $("#btTypeId").click(function() {
-      alert("type " + $("#topicTypeId").val());
+      // alert("type " + $("#topicTypeId").val());
+      $("#taListId").val($("#topicTypeId").val());;
     });
-
 
     $( ".controlgroup" ).controlgroup()
     $( ".controlgroup-vertical" ).controlgroup({
@@ -49,6 +73,7 @@
       "neural networks",
       "semantic web",
       "machine vision",
+      "artificial intelligence",
       "data mining",
       "natural language processing",
       "robotics",
@@ -80,6 +105,7 @@
       <button id="btSelectId">Submit</button>
     </div>
   </fieldset>
+  <br>
   <fieldset>
     <legend>Type a Topic</legend>
     <div class="controlgroup">
@@ -91,11 +117,19 @@
   </fieldset>
   <br>
   <fieldset>
-    <legend>Topic Sumamry</legend>
+    <legend>Topic List</legend>
     <div class="controlgroup-vertical">
-      <textarea>topic summary...</textarea>
+      <textarea id="taListId" rows="10" cols="60">topic summary...</textarea>
     </div>
   </fieldset>
+  <br>
+  <fieldset>
+    <legend>Article Suggestions</legend>
+    <div class="controlgroup-vertical">
+      <textarea id="taId" rows="10" cols="60">article suggestions...</textarea>
+    </div>
+  </fieldset>
+  <br>
   <fieldset>
     <legend>Graph View</legend>
     <div class="controlgroup-vertical">

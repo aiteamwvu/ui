@@ -1,0 +1,22 @@
+{
+  "00":
+    {"title": "IBM Claims Big Breakthrough in Deep Learning",
+     "link": "https://tech.slashdot.org/story/17/08/08/1556222/ibm-claims-big-breakthrough-in-deep-learning",
+     "date": "17/08/08"},
+  "01":
+    {"title": "Qualcomm Opens Its Mobile Chip Deep Learning Framework To All",
+    "link": "https://hardware.slashdot.org/story/17/07/26/1852240/qualcomm-opens-its-mobile-chip-deep-learning-framework-to-all",
+    "date": "17/09/21"},
+  "02":
+    {"title": "Tesla Is Working With AMD To Develop Its Own AI Chip For Self-Driving Cars",
+     "link": "https://slashdot.org/story/17/09/23/046233/are-companies-overhyping-ai",
+     "date": "17/09/23"},
+  "03":
+    {"title": "Intel Launches Movidius Neural Compute Stick: 'Deep Learning and AI' On a $79 USB Stick",
+     "link": "https://tech.slashdot.org/story/17/07/20/1951253/intel-launches-movidius-neural-compute-stick-deep-learning-and-ai-on-a-79-usb-stick",
+     "date": "17/07/20"},
+  "04":
+    {"title": "The Dark Secret At the Heart of AI",
+     "link": "https://hardware.slashdot.org/story/17/04/12/2030211/the-dark-secret-at-the-heart-of-ai",
+     "date": "17/04/12"}
+}
