@@ -26,15 +26,41 @@
 
   $(document).ready(function() {
 
-    // var obj = {a: 1, b: 2};
-    // for (var key in obj) {
-    //   if (obj.hasOwnProperty(key)) {
-    //     var val = obj[key];
-    //     console.log(val);
-    //   }
-    // }
+    function getFileName(choice) {
+      var result = "";
+      switch (choice) {
+        case "machine learning":
+          result = "machine_learning.json";
+          break;
+        case "neural networks":
+          result = "neural_networks.json";
+          break;
+        case "semantic web":
+          result = "semantic_web.json";
+          break;
+        case "machine vision":
+          result = "machine_vision.json";
+          break;
+        case "artificial intelligence":
+          result = "ai.json";
+          break;
+        case "data mining":
+          result = "data_mining.json";
+          break;
+        case "natural language processing":
+          result = "natural_language_processing.json";
+          break;
+        case "robotics":
+          result = "robotics.json";
+          break;
+        case "deep learning":
+          result = "deep_learning.json";
+          break;
+        default:
+      }
+      return result;
+    }
 
-    // var obj = {a: 1, b: 2, c: {x: 3, y: 4}};
     function walk(obj) {
       for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -49,19 +75,30 @@
     }
     // walk(obj);
 
-    $.getJSON( "test.json", function( data ) {
-      walk(data);
-    });
+    // $.getJSON( "test.json", function( data ) {
+    //   walk(data);
+    // });
 
     $("#btSelectId").click(function() {
       // alert("select " + $('#topicSelectId option:selected').val());
       // alert("select " + $('#topicSelectId option:selected').text());
       $("#taListId").val($('#topicSelectId option:selected').val());
+      var fn = getFileName($('#topicSelectId option:selected').val());
+      console.log('filename ' + fn);
+      $.getJSON( fn, function( data ) {
+        walk(data);
+      });
+      // walk(fn);
     });
 
     $("#btTypeId").click(function() {
       // alert("type " + $("#topicTypeId").val());
-      $("#taListId").val($("#topicTypeId").val());;
+      $("#taListId").val($("#topicTypeId").val());
+      var fn = getFileName($("#topicTypeId").val());
+      console.log('filename ' + fn);
+      $.getJSON( fn, function( data ) {
+        walk(data);
+      });      
     });
 
     $( ".controlgroup" ).controlgroup()
