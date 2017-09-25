@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>ExperTwin</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style>
     .ui-controlgroup-vertical {
       width: 150px;
@@ -21,42 +20,72 @@
     }
 
   </style>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script>
-  $( function() {
+
+  $(document).ready(function() {
+
+    $("#topicSelectId").change(function() {
+      alert("change");
+    });
+
+    $("#btSelectId").click(function() {
+      alert("select " + $('#topicSelectId option:selected').val());
+      // alert("select " + $('#topicSelectId option:selected').text());
+    });
+
+    $("#btTypeId").click(function() {
+      alert("type " + $("#topicTypeId").val());
+    });
+
+
     $( ".controlgroup" ).controlgroup()
     $( ".controlgroup-vertical" ).controlgroup({
       "direction": "vertical"
     });
-
+    var availableTags = [
+      "machine learning",
+      "neural networks",
+      "semantic web",
+      "machine vision",
+      "data mining",
+      "natural language processing",
+      "robotics",
+      "deep learning"
+    ];
+    $("#topicTypeId").autocomplete({
+      source: availableTags
+    });
   });
   </script>
 </head>
 <body bgcolor="#9e9897">
 <div class="widget">
-  <h1>ExperTwin</h1>
+  <h1>ExperTwins</h1>
   <fieldset>
     <legend>Select a Topic</legend>
     <div class="controlgroup">
-      <select id="topic1-type">
-        <option>topi01</option>
-        <option>topi02</option>
-        <option>topi03</option>
-        <option>topi04</option>
-        <option>topi05</option>
-        <option>topi06</option>
-        <option>topi07</option>
+      <select id="topicSelectId">
+        <option value="machine learning">machine learning</option>
+        <option value="neural networks">neural networks</option>
+        <option value="semantic web">semantic web</option>
+        <option value="machine vision">machine vision</option>
+        <option value="artificial intelligence">artificial intelligence</option>
+        <option value="data mining">data mining</option>
+        <option value="natural language processing">natural language processing</option>
+        <option value="robotics">robotics</option>
+        <option value="deep learning">deep learning</option>
       </select>
-      <button>Submit</button>
+      <button id="btSelectId">Submit</button>
     </div>
   </fieldset>
   <fieldset>
     <legend>Type a Topic</legend>
     <div class="controlgroup">
       <div class="ui-widget">
-        <input id="tags" class="ui-textinput">
-        <button>Submit</button>
+        <input id="topicTypeId" class="ui-textinput">
+        <button id="btTypeId">Submit</button>
       </div>
     </div>
   </fieldset>
