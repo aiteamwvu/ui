@@ -58,37 +58,31 @@
           break;
         default:
       }
-      return result;
+      return "data/" + result;
     }
 
     function walk(obj) {
+      $("#tempId").remove();
+      $("#listId").append("<span id=\"tempId\"></span>");
       for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
           var val = obj[key];
-          console.log("key " + key);
-          console.log(" val " + val.title);
-          console.log(" val " + val.link);
-          console.log(" val " + val.date);
-          //walk(val);
+          $("#tempId").append(
+            "<p>" + key +
+            "<a href=\"" + val.link + "\">" +
+            val.title +
+            "</a>" + val.date + "</p>");
         }
       }
     }
-    // walk(obj);
-
-    // $.getJSON( "test.json", function( data ) {
-    //   walk(data);
-    // });
 
     $("#btSelectId").click(function() {
-      // alert("select " + $('#topicSelectId option:selected').val());
-      // alert("select " + $('#topicSelectId option:selected').text());
       $("#taListId").val($('#topicSelectId option:selected').val());
       var fn = getFileName($('#topicSelectId option:selected').val());
       console.log('filename ' + fn);
       $.getJSON( fn, function( data ) {
         walk(data);
       });
-      // walk(fn);
     });
 
     $("#btTypeId").click(function() {
@@ -98,7 +92,7 @@
       console.log('filename ' + fn);
       $.getJSON( fn, function( data ) {
         walk(data);
-      });      
+      });
     });
 
     $( ".controlgroup" ).controlgroup()
@@ -155,15 +149,14 @@
   <br>
   <fieldset>
     <legend>Topic List</legend>
-    <div class="controlgroup-vertical">
-      <textarea id="taListId" rows="10" cols="60">topic summary...</textarea>
-    </div>
+    <span id="listId"></span>
   </fieldset>
   <br>
   <fieldset>
     <legend>Article Suggestions</legend>
     <div class="controlgroup-vertical">
-      <textarea id="taId" rows="10" cols="60">article suggestions...</textarea>
+      <span id="suggestId"></span>
+      <p>article suggestions...</p>
     </div>
   </fieldset>
   <br>
