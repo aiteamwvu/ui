@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="google-signin-client_id" content="111919209403-c5kbkhsd0qki5hqdsde9vkfv4ds7f888.apps.googleusercontent.com">
   <title>ExperTwin</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style>
@@ -22,7 +23,23 @@
   </style>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
+    
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+    
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 
   $(document).ready(function() {
 
@@ -119,6 +136,7 @@
 <body bgcolor="#9e9897">
 <div class="widget">
   <h1>ExperTwins</h1>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <fieldset>
     <legend>Select a Topic</legend>
     <div class="controlgroup">
@@ -166,6 +184,7 @@
       <p>d3 graph here...
     </div>
   </fieldset>
+  <a href="#" onclick="signOut();">Sign out</a>
 </div>
 
 </body>
