@@ -20,15 +20,28 @@
       width: 20px;
     }
     #signIn{
+      visibility: visible;
       position: absolute;
       top: 20px;
       right: 20px;
+    }
+    #signOut{
+      position: absolute;
+      top: 30px;
+      right: 20px
+    }
+    #name{
+      visibility: hidden;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2;
     }
 
   </style>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
       
   function onSignIn(googleUser) {
@@ -37,6 +50,10 @@
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    $('#signIn').css("visibility", "hidden");
+    
+    $('#name').innerText = "Signed in: " + profile.getName();
+    $('#name').css("visibility", "visible");
   }
     
   function signOut() {
@@ -47,26 +64,6 @@
   }
 
   $(document).ready(function() {
-
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-     }
-  
-    function onFailure(error) {
-      console.log(error);
-    }
- 
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
     
     function getFileName(choice) {
       var result = "";
@@ -162,7 +159,8 @@
 <div class="widget">
   <h1>ExperTwins</h1>
   <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
-  <a href="#" onclick="signOut();">Sign out</a>
+  <div id="name"></div>
+  <a href="#" onclick="signOut();" id="signOut">Sign out</a>
   <fieldset>
     <legend>Select a Topic</legend>
     <div class="controlgroup">
