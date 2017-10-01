@@ -19,6 +19,11 @@
     .ui-controlgroup-horizontal .ui-spinner-input {
       width: 20px;
     }
+    #signIn{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
 
   </style>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -136,7 +141,7 @@
 <body bgcolor="#9e9897">
 <div class="widget">
   <h1>ExperTwins</h1>
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
   <fieldset>
     <legend>Select a Topic</legend>
     <div class="controlgroup">
