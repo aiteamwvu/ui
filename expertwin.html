@@ -53,9 +53,10 @@
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     
     $('#signIn').css("visibility", "hidden");
-    $('#name').innerText = "Signed in: " + profile.getName();
-    $('#name').css("visibility", "visible");
     $('#signOut').css("visibiilty", "visible");
+    $('#name').text("Signed in: " + profile.getName());
+    $('#name').css("visibility", "visible");
+    
   }
     
   function signOut() {
