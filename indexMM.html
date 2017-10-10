@@ -50,6 +50,7 @@
     $('#name').text("Signed in: " + profile.getName());
     $('#name').css("visibility", "visible");
 
+    $('#topicsMenuId').css("visibility", "visible");
   }
 
   function signOut() {
@@ -60,6 +61,7 @@
   }
 
   $(document).ready(function() {
+  $('#topicsMenuId').css("visibility", "hidden");
 
     function getFileName(choice) {
       var result = "";
@@ -149,10 +151,11 @@
 </head>
 <body bgcolor="#9e9897">
 <div class="widget">
-  <h1>ExperTwins</h1>
+  <h1>ExperTwin</h1>
   <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
   <div id="name"></div>
   <a href="#" onclick="signOut();" id="signOut">Sign out</a>
+  <div id="topicsMenuId">
   <fieldset>
     <legend>Select a Topic</legend>
     <div class="controlgroup">
@@ -170,7 +173,6 @@
       <button id="btSelectId">Submit</button>
     </div>
   </fieldset>
-  <br>
   <fieldset>
     <legend>Type a Topic</legend>
     <div class="controlgroup">
@@ -180,7 +182,6 @@
       </div>
     </div>
   </fieldset>
-  <br>
   <fieldset>
     <legend>Topic List</legend>
     <span id="listId"></span>
@@ -200,6 +201,7 @@
       <p>d3 graph here...
     </div>
   </fieldset>
+</div>
 </div>
 
 </body>
