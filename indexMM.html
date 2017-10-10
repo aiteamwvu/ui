@@ -58,6 +58,11 @@
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+    $('#signIn').css("visibility", "visible");
+    $('#signOut').css("visibility", "hidden");
+    $('#name').text("");
+    $('#name').css("visibility", "hidden");
+
     $('#topicsMenuId').css("visibility", "hidden");
   }
 
