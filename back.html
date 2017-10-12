@@ -6,6 +6,13 @@
   <title>ExperTwin</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style>
+    .ui-controlgroup-vertical {
+      width: 150px;
+    }
+    .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+    .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+      text-align: center;
+    }
     #topic-type-button {
       width: 120px;
     }
@@ -37,71 +44,30 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
-  function getTopicsMenu() {
-    $('#topicsMenuId').css("display", "inline");
-    $('#userSetupId').css("display", "none");
-    $('#newUserId').css("display", "none");
-    $('#existingUserId').css("display", "none");
-    $('#loginPromptId').css("display", "none")
-  }
-
-  function userExist(email, callback) {
-    $.getJSON('http://aiwvu.ml:5000/get_user?email=' + email + '&t=' + (new Date()).getTime(), function(data) {
-        callback(data);
-    });
-  }
-
+      
   function onSignIn(googleUser) {
-    console.log("ENTER");
-    console.log(googleUser);
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
+    
     $('#signIn').css("visibility", "hidden");
     $('#signOut').css("visibility", "visible");
     $('#name').text("Signed in: " + profile.getName());
     $('#name').css("visibility", "visible");
-
-    $('#userSetupId').css("display", "inline");
-    $('#loginPromptId').css("display", "none");
-    userExist(profile.getEmail(), function(userObject) {
-      if (userObject == null) {
-        $('#newUserId').css("display", "inline");
-        console.log("New user");
-      } else {
-        $('#existingUserId').css("display", "inline");
-        console.log("Existing user");
-      }
-    });
+    
   }
-
+    
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
-    $('#signIn').css("visibility", "visible");
-    $('#signOut').css("visibility", "hidden");
-    $('#name').text("");
-    $('#name').css("visibility", "hidden");
-
-    $('#topicsMenuId').css("display", "none");
-    $('#userSetupId').css("display", "none");
-    $('#newUserId').css("display", "none");
-    $('#existingUserId').css("display", "none");
-    $('#loginPromptId').css("display", "inline");
   }
 
   $(document).ready(function() {
-    $('#topicsMenuId').css("display", "none");
-    $('#userSetupId').css("display", "none");
-    $('#newUserId').css("display", "none");
-    $('#existingUserId').css("display", "none");
-    $('#loginPromptId').css("display", "inline");
-
+    
     function getFileName(choice) {
       var result = "";
       switch (choice) {
@@ -171,6 +137,10 @@
       });
     });
 
+    $( ".controlgroup" ).controlgroup()
+    $( ".controlgroup-vertical" ).controlgroup({
+      "direction": "vertical"
+    });
     var availableTags = [
       "machine learning",
       "neural networks",
@@ -190,27 +160,10 @@
 </head>
 <body bgcolor="#9e9897">
 <div class="widget">
-  <h1>ExperTwin</h1>
+  <h1>ExperTwins</h1>
   <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
   <div id="name"></div>
   <a href="#" onclick="signOut();" id="signOut">Sign out</a>
-  <div id="loginPromptId">
-    <p>Login using your gmail account</p>
-  </div>
-  <div id="userSetupId">
-    <p>User Setup</p>
-    <div id="newUserId">
-      <p>New User</p>
-      <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea>
-    </div>
-    <div id="existingUserId">
-      <p>Existing User</p>
-      <textarea rows="4" cols="100" id="dbKeywordsId">db keywords</textarea><br>
-      <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea><br>
-    </div>
-    <button id="setupContinueId" onclick="getTopicsMenu()">Continue</button>
-  </div>
-  <div id="topicsMenuId">
   <fieldset>
     <legend>Select a Topic</legend>
     <div class="controlgroup">
@@ -228,6 +181,7 @@
       <button id="btSelectId">Submit</button>
     </div>
   </fieldset>
+  <br>
   <fieldset>
     <legend>Type a Topic</legend>
     <div class="controlgroup">
@@ -237,6 +191,7 @@
       </div>
     </div>
   </fieldset>
+  <br>
   <fieldset>
     <legend>Topic List</legend>
     <span id="listId"></span>
@@ -246,7 +201,7 @@
     <legend>Article Suggestions</legend>
     <div class="controlgroup-vertical">
       <span id="suggestId"></span>
-      <p>article suggestions...</p>
+      <p>article suggestions here...</p>
     </div>
   </fieldset>
   <br>
@@ -256,7 +211,6 @@
       <p>d3 graph here...
     </div>
   </fieldset>
-</div>
 </div>
 
 </body>
