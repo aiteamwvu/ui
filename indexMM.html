@@ -37,6 +37,14 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
+  function getTopicsMenu() {
+    $('#topicsMenuId').css("visibility", "visible");
+    $('#userSetupId').css("visibility", "hidden");
+    $('#newUserId').css("visibility", "hidden");
+    $('#existingUserId').css("visibility", "hidden");
+    $('#loginPromptId').css("visibility", "hidden")
+  }
+
   function userExist(name) {
 
     return true;
@@ -192,6 +200,7 @@
       <p>Existing User</p>
 
     </div>
+    <button id="setupContinueId" onclick="getTopicsMenu()">Continue</button>
   </div>
   <div id="topicsMenuId">
   <fieldset>
