@@ -80,10 +80,10 @@
     userExist(profile.getEmail(), function(userObject) {
       if (userObject == null) {
         $('#newUserId').css("display", "inline");
-        alert("New user");
+        console.log("New user");
       } else {
         $('#existingUserId').css("display", "inline");
-        alert("Existing user");
+        console.log("Existing user");
       }
     });
   }
