@@ -38,11 +38,11 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
   function getTopicsMenu() {
-    $('#topicsMenuId').css("visibility", "visible");
-    $('#userSetupId').css("visibility", "hidden");
-    $('#newUserId').css("visibility", "hidden");
-    $('#existingUserId').css("visibility", "hidden");
-    $('#loginPromptId').css("visibility", "hidden")
+    $('#topicsMenuId').css("display", "inline");
+    $('#userSetupId').css("display", "none");
+    $('#newUserId').css("display", "none");
+    $('#existingUserId').css("display", "none");
+    $('#loginPromptId').css("display", "none")
   }
 
   function userExist(name) {
@@ -57,17 +57,17 @@
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    $('#signIn').css("visibility", "hidden");
-    $('#signOut').css("visibility", "visible");
+    $('#signIn').css("display", "none");
+    $('#signOut').css("display", "inline");
     $('#name').text("Signed in: " + profile.getName());
-    $('#name').css("visibility", "visible");
+    $('#name').css("display", "inline");
 
-    $('#userSetupId').css("visibility", "visible");
-    $('#loginPromptId').css("visibility", "hidden");
+    $('#userSetupId').css("display", "inline");
+    $('#loginPromptId').css("display", "none");
     if (userExist(profile.getEmail())) {
-      $('#existingUserId').css("visibility", "visible");
+      $('#existingUserId').css("display", "inline");
     } else {
-      $('#newUserId').css("visibility", "visible");
+      $('#newUserId').css("display", "inline");
     }
   }
 
@@ -76,24 +76,24 @@
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
-    $('#signIn').css("visibility", "visible");
-    $('#signOut').css("visibility", "hidden");
+    $('#signIn').css("display", "inline");
+    $('#signOut').css("display", "none");
     $('#name').text("");
-    $('#name').css("visibility", "hidden");
+    $('#name').css("display", "none");
 
-    $('#topicsMenuId').css("visibility", "hidden");
-    $('#userSetupId').css("visibility", "hidden");
-    $('#newUserId').css("visibility", "hidden");
-    $('#existingUserId').css("visibility", "hidden");
-    $('#loginPromptId').css("visibility", "visible");
+    $('#topicsMenuId').css("display", "none");
+    $('#userSetupId').css("display", "none");
+    $('#newUserId').css("display", "none");
+    $('#existingUserId').css("display", "none");
+    $('#loginPromptId').css("display", "inline");
   }
 
   $(document).ready(function() {
-    $('#topicsMenuId').css("visibility", "hidden");
-    $('#userSetupId').css("visibility", "hidden");
-    $('#newUserId').css("visibility", "hidden");
-    $('#existingUserId').css("visibility", "hidden");
-    $('#loginPromptId').css("visibility", "visible");
+    $('#topicsMenuId').css("display", "none");
+    $('#userSetupId').css("display", "none");
+    $('#newUserId').css("display", "none");
+    $('#existingUserId').css("display", "none");
+    $('#loginPromptId').css("display", "inline");
 
     function getFileName(choice) {
       var result = "";
@@ -191,13 +191,13 @@
     <p>Login using your gmail account</p>
   </div>
   <div id="userSetupId">
-    <p>User Setup</p>
+    <span>User Setup</span>
     <div id="newUserId">
-      <p>New User</p>
+      <span>New User</span>
       <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea>
     </div>
     <div id="existingUserId">
-      <p>Existing User</p>
+      <span>Existing User</span>
       <textarea rows="4" cols="100" id="dbKeywordsId">db keywords</textarea>
       <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea>
     </div>
