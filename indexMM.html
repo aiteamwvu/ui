@@ -37,6 +37,10 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
+  function userExist(name) {
+
+    return true;
+  }
 
   function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
@@ -50,7 +54,12 @@
     $('#name').text("Signed in: " + profile.getName());
     $('#name').css("visibility", "visible");
 
-    $('#topicsMenuId').css("visibility", "visible");
+    $('#userSetupId').css("visibility", "visible");
+    if (userExist(profile.getEmail())) {
+      $('#existingUserId').css("visibility", "visible");
+    } else {
+      $('#newUserId').css("visibility", "visible");
+    }
   }
 
   function signOut() {
@@ -64,10 +73,18 @@
     $('#name').css("visibility", "hidden");
 
     $('#topicsMenuId').css("visibility", "hidden");
+    $('#userSetupId').css("visibility", "hidden");
+    $('#newUserId').css("visibility", "hidden");
+    $('#existingUserId').css("visibility", "hidden");
+    $('#loginPromptId').css("visibility", "visible");
   }
 
   $(document).ready(function() {
-  $('#topicsMenuId').css("visibility", "hidden");
+    $('#topicsMenuId').css("visibility", "hidden");
+    $('#userSetupId').css("visibility", "hidden");
+    $('#newUserId').css("visibility", "hidden");
+    $('#existingUserId').css("visibility", "hidden");
+    $('#loginPromptId').css("visibility", "visible");
 
     function getFileName(choice) {
       var result = "";
@@ -161,6 +178,20 @@
   <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
   <div id="name"></div>
   <a href="#" onclick="signOut();" id="signOut">Sign out</a>
+  <div id="loginPromptId">
+    <p>Login using your gmail account</p>
+  </div>
+  <div id="userSetupId">
+    <p>User Setup</p>
+    <div id="newUserId">
+      <p>New User</p>
+
+    </div>
+    <div id="existingUserId">
+      <p>Existing User</p>
+
+    </div>
+  </div>
   <div id="topicsMenuId">
   <fieldset>
     <legend>Select a Topic</legend>
