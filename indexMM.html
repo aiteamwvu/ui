@@ -57,10 +57,10 @@
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    $('#signIn').css("display", "none");
-    $('#signOut').css("display", "inline");
+    $('#signIn').css("visibility", "hidden");
+    $('#signOut').css("visibility", "visible");
     $('#name').text("Signed in: " + profile.getName());
-    $('#name').css("display", "inline");
+    $('#name').css("visibility", "visible");
 
     $('#userSetupId').css("display", "inline");
     $('#loginPromptId').css("display", "none");
@@ -76,10 +76,10 @@
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
-    $('#signIn').css("display", "inline");
-    $('#signOut').css("display", "none");
+    $('#signIn').css("visibility", "visible");
+    $('#signOut').css("visibility", "hidden");
     $('#name').text("");
-    $('#name').css("display", "none");
+    $('#name').css("visibility", "hidden");
 
     $('#topicsMenuId').css("display", "none");
     $('#userSetupId').css("display", "none");
