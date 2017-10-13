@@ -45,7 +45,7 @@
     $('#loginPromptId').css("display", "none")
   }
 
-  function userExist(email, callback) {
+  function getUser(email, callback) {
     $.getJSON('http://aiwvu.ml:5000/get_user?email=' + email + '&t=' + (new Date()).getTime(), function(data) {
         callback(data);
     });
@@ -68,11 +68,8 @@
     $('#userSetupId').css("display", "inline");
     $('#loginPromptId').css("display", "none");
     $('#usernameId').text(profile.getName());
-    userExist(profile.getEmail(), function(userObject) {
-      if (userObject != null) {
-        $('#existingUserId').css("display", "inline");
-        console.log("Existing user");
-      } else { console.log("new user"); }
+    getUser(profile.getEmail(), function(userObject) {
+      $('#userSetupId').css("display", "inline");
     });
   }
 
@@ -150,7 +147,7 @@
       }
     }
 
-    $("#btSelectId").click(function() {
+    $("#btnSelectId").click(function() {
       $("#taListId").val($('#topicSelectId option:selected').val());
       var fn = getFileName($('#topicSelectId option:selected').val());
       console.log('filename ' + fn);
@@ -218,7 +215,7 @@
         <option value="robotics">robotics</option>
         <option value="deep learning">deep learning</option>
       </select>
-      <button id="btSelectId">Submit</button>
+      <button id="btnSelectId">Submit</button>
     </div>
   </fieldset>
   <fieldset>
