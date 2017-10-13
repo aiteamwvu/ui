@@ -40,13 +40,17 @@
   function getTopicsMenu() {
     $('#topicsMenuId').css("display", "inline");
     $('#userSetupId').css("display", "none");
-    $('#newUserId').css("display", "none");
-    $('#existingUserId').css("display", "none");
     $('#loginPromptId').css("display", "none")
   }
 
   function getUser(email, callback) {
     $.getJSON('http://aiwvu.ml:5000/get_user?email=' + email + '&t=' + (new Date()).getTime(), function(data) {
+        callback(data);
+    });
+  }
+
+  function setKeywords(keywords, callback) {
+    $.getJSON('http://aiwvu.ml:5000/set_keywords?keywords=' + keywords + '&t=' + (new Date()).getTime(), function(data) {
         callback(data);
     });
   }
@@ -70,6 +74,7 @@
     $('#usernameId').text(profile.getName());
     getUser(profile.getEmail(), function(userObject) {
       $('#userSetupId').css("display", "inline");
+      console.log(userObject.keywords);
     });
   }
 
@@ -93,8 +98,6 @@
   $(document).ready(function() {
     $('#topicsMenuId').css("display", "none");
     $('#userSetupId').css("display", "none");
-    $('#newUserId').css("display", "none");
-    $('#existingUserId').css("display", "none");
     $('#loginPromptId').css("display", "inline");
 
     function getFileName(choice) {
@@ -151,13 +154,13 @@
       $("#taListId").val($('#topicSelectId option:selected').val());
       var fn = getFileName($('#topicSelectId option:selected').val());
       console.log('filename ' + fn);
-      $.getJSON( fn, function( data ) {
+      $.getJSON( fn, function(data) {
         walk(data);
       });
     });
 
     $("#btnTypeId").click(function() {
-      // alert("type " + $("#topicTypeId").val());
+
       $("#taListId").val($("#topicTypeId").val());
       var fn = getFileName($("#topicTypeId").val());
       console.log('filename ' + fn);
@@ -194,9 +197,7 @@
   </div>
   <div id="userSetupId">
     <p>Welcome to ExperTwin <span id=usernameId></span></p>
-    <div id="existingUserId">
-      <textarea rows="4" cols="100" id="dbKeywordsId">db keywords</textarea><br>
-    </div>
+    <textarea rows="4" cols="100" id="dbKeywordsId">db keywords</textarea><br>
     <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea><br>
     <button id="setupContinueId" onclick="getTopicsMenu()">Continue</button>
   </div>
