@@ -72,7 +72,7 @@
       if (userObject != null) {
         $('#existingUserId').css("display", "inline");
         console.log("Existing user");
-      }
+      } else { console.log("new user"); }
     });
   }
 
@@ -159,7 +159,7 @@
       });
     });
 
-    $("#btTypeId").click(function() {
+    $("#btnTypeId").click(function() {
       // alert("type " + $("#topicTypeId").val());
       $("#taListId").val($("#topicTypeId").val());
       var fn = getFileName($("#topicTypeId").val());
@@ -226,7 +226,7 @@
     <div class="controlgroup">
       <div class="ui-widget">
         <input id="topicTypeId" class="ui-textinput">
-        <button id="btTypeId">Submit</button>
+        <button id="btnTypeId">Submit</button>
       </div>
     </div>
   </fieldset>
