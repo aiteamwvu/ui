@@ -74,7 +74,7 @@
     $('#usernameId').text(profile.getName());
     getUser(profile.getEmail(), function(userObject) {
       $('#userSetupId').css("display", "inline");
-      console.log(userObject.keywords);
+      console.log("keywords " + userObject.keywords);
     });
   }
 
