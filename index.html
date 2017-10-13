@@ -67,11 +67,9 @@
 
     $('#userSetupId').css("display", "inline");
     $('#loginPromptId').css("display", "none");
+    $('#usernameId').text(profile.getName());
     userExist(profile.getEmail(), function(userObject) {
-      if (userObject == null) {
-        $('#newUserId').css("display", "inline");
-        console.log("New user");
-      } else {
+      if (userObject != null) {
         $('#existingUserId').css("display", "inline");
         console.log("Existing user");
       }
@@ -198,16 +196,11 @@
     <p>Login using your gmail account</p>
   </div>
   <div id="userSetupId">
-    <p>User Setup</p>
-    <div id="newUserId">
-      <p>New User</p>
-      <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea>
-    </div>
+    <p>Welcome to ExperTwin <span id=usernameId></span></p>
     <div id="existingUserId">
-      <p>Existing User</p>
       <textarea rows="4" cols="100" id="dbKeywordsId">db keywords</textarea><br>
-      <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea><br>
     </div>
+    <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea>
     <button id="setupContinueId" onclick="getTopicsMenu()">Continue</button>
   </div>
   <div id="topicsMenuId">
