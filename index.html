@@ -37,15 +37,16 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
+
   function getTopicsMenu() {
     keys = [];
     keys = $('#newKeywordsId').val().split(',');
-    console.log(keys);
+    console.log("send keywords" + keys);
 
-    // setUser(profile.getEmail(), keys, function(userObject) {
-    //   $('#userSetupId').css("display", "inline");
-    //   console.log("keywords " + userObject.keywords);
-    // });
+    setUser(profile.getEmail(), keys, function(userObject) {
+      $('#userSetupId').css("display", "inline");
+      console.log("set keywords " + userObject.keywords);
+    });
 
     $('#topicsMenuId').css("display", "inline");
     $('#userSetupId').css("display", "none");
@@ -83,7 +84,7 @@
     $('#usernameId').text(profile.getName());
     getUser(profile.getEmail(), function(userObject) {
       $('#userSetupId').css("display", "inline");
-      console.log("keywords " + userObject.keywords);
+      console.log("get keywords " + userObject.keywords);
     });
   }
 
