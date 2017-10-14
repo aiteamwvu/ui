@@ -87,7 +87,7 @@
     getUser(profile.getEmail(), function(userObject) {
       $('#userSetupId').css("display", "inline");
       console.log("get keywords " + userObject.keywords);
-      $('#newKeywordsId').val(userObject.keywords); 
+      $('#dbKeywordsId').val(userObject.keywords);
     });
   }
 
