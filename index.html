@@ -38,6 +38,15 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
   function getTopicsMenu() {
+    keys = [];
+    keys = $('#newKeywordsId').val().split(',');
+    console.console.log(keys);
+
+    // setUser(profile.getEmail(), keys, function(userObject) {
+    //   $('#userSetupId').css("display", "inline");
+    //   console.log("keywords " + userObject.keywords);
+    // });
+
     $('#topicsMenuId').css("display", "inline");
     $('#userSetupId').css("display", "none");
     $('#loginPromptId').css("display", "none")
@@ -49,8 +58,8 @@
     });
   }
 
-  function setKeywords(keywords, callback) {
-    $.getJSON('http://aiwvu.ml:5000/set_keywords?keywords=' + keywords + '&t=' + (new Date()).getTime(), function(data) {
+  function setUser(email, keywords, callback) {
+    $.getJSON('http://aiwvu.ml:5000/set_user?email=' + email + '&keywords=' + keywords + '&t=' + (new Date()).getTime(), function(data) {
         callback(data);
     });
   }
@@ -199,7 +208,7 @@
     <p>Welcome to ExperTwin <span id=usernameId></span></p>
     <textarea rows="4" cols="100" id="dbKeywordsId">db keywords</textarea><br>
     <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea><br>
-    <button id="setupContinueId" onclick="getTopicsMenu()">Continue</button>
+    <button id="continueId" onclick="getTopicsMenu()">Continue</button>
   </div>
   <div id="topicsMenuId">
   <fieldset>
