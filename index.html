@@ -41,6 +41,10 @@
   var profile;
 
   function getTopicsMenu() {
+    $('#topicsMenuId').css("display", "inline");
+    $('#userSetupId').css("display", "none");
+    $('#loginPromptId').css("display", "none")
+        
     keys = [];
     keys = $('#newKeywordsId').val().split(',');
     console.log("send keywords" + keys);
@@ -49,10 +53,6 @@
       $('#userSetupId').css("display", "inline");
       console.log("set keywords " + userObject.keywords);
     });
-
-    $('#topicsMenuId').css("display", "inline");
-    $('#userSetupId').css("display", "none");
-    $('#loginPromptId').css("display", "none")
   }
 
   function getUser(email, callback) {
