@@ -109,7 +109,7 @@
     $('#usernameId').text(profile.getName());
     getUser(profile.getEmail(), function(userObject) {
       $('#userSetupId').css("display", "inline");
-      keywords = cleanString(userObject.keywords);
+      // keywords = cleanString(userObject.keywords);
       console.log("get keywords " + userObject.keywords);
       $('#dbKeywordsId').val(userObject.keywords);
     });
