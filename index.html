@@ -57,6 +57,10 @@
       console.log("get keywords " + userObject.keywords);
       availableTags = userObject.keywords.split(',');
       console.log("keys " + availableTags)
+      for (var key in userObject.keywords){
+        console.log("key " + key);
+      }
+
       $("#topicTypeId").autocomplete({
         source: keys
       });
