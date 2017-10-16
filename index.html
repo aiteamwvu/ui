@@ -50,9 +50,8 @@
     console.log("send keywords" + keys);
 
     setUser(profile.getEmail(), keys, function(userObject) {
-      $('#userSetupId').css("display", "inline");
       console.log("set keywords " + userObject.keywords);
-    });
+    });   
   }
 
   function getUser(email, callback) {
