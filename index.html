@@ -46,23 +46,18 @@
     $('#userSetupId').css("display", "none");
     $('#loginPromptId').css("display", "none")
 
-    keys = [];
+
     keys = $('#newKeywordsId').val().split(',');
-    console.log("send keywords" + keys);
 
     setUser(profile.getEmail(), keys, function(userObject) {
       console.log("set keywords " + userObject.keywords);
     });
     getUser(profile.getEmail(), function(userObject) {
       console.log("get keywords " + userObject.keywords);
-      availableTags = userObject.keywords.split(',');
-      console.log("keys " + availableTags);
-      for (var key in userObject.keywords){
-        console.log("key " + key);
-      }
-
+      var ka = cleanKeywords(userObject.keywords);
+      console.log("keys " + ka);
       $("#topicTypeId").autocomplete({
-        source: keys
+        source: ka
       });
     });
 
