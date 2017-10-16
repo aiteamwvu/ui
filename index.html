@@ -149,6 +149,8 @@
       counter++;
       if (counter == 1) {
         link = news[key];
+        token = link.split('|');
+        link = token[0];
         console.log("link : " + link);
       } else if (counter == 2) {
         title = news[key];
