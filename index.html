@@ -44,7 +44,7 @@
     $('#topicsMenuId').css("display", "inline");
     $('#userSetupId').css("display", "none");
     $('#loginPromptId').css("display", "none")
-        
+
     keys = [];
     keys = $('#newKeywordsId').val().split(',');
     console.log("send keywords" + keys);
@@ -210,8 +210,9 @@
   </div>
   <div id="userSetupId">
     <p>Welcome to ExperTwin <span id=usernameId></span></p>
-    <textarea rows="4" cols="100" id="dbKeywordsId">db keywords</textarea><br>
-    <textarea rows="4" cols="100" id="newKeywordsId">new keywords</textarea><br>
+    <textarea rows="4" cols="100" id="dbKeywordsId"></textarea><br>
+    <p>Enter new keywords separated by a comma</p>
+    <textarea rows="4" cols="100" id="newKeywordsId" placeholder="new keywords"></textarea><br>
     <button id="continueId" onclick="getTopicsMenu()">Continue</button>
   </div>
   <div id="topicsMenuId">
