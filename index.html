@@ -55,10 +55,10 @@
     });
     getUser(profile.getEmail(), function(userObject) {
       console.log("get keywords " + userObject.keywords);
-      availableTags = userObject.keywords;
-      console.log("keys " + userObject.keywords)
+      availableTags = userObject.keywords.split(',');
+      console.log("keys " + availableTags)
       $("#topicTypeId").autocomplete({
-        source: keys
+        source: availableTags
       });
     });
 
