@@ -164,11 +164,21 @@
       console.log('selected ' + searchKey);
       getNews(searchKey, function(newsObj) {
         // console.log("news " + newsObj);
-
+        var counter = 0;
+        var link = "", title = "", date = "";
         for (var key in newsObj) {
-          if (newsObj.hasOwnProperty(key)) {
-            var val = newsObj[key];
-            console.log(key + " : " + val);
+          counter++;
+          if (counter == 1) {
+            link = newsObj[key];
+            console.log("link : " + val);
+          } else if (counter == 2) {
+            title = newsObj[key];
+            console.log("title : " + val);
+          } else if (counter == 3) {
+            date = newsObj[key];
+            console.log("date : " + val);
+          } else if (counter == 6) {
+            counter = 0;
           }
         }
 
