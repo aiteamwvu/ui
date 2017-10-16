@@ -39,7 +39,7 @@
   <script>
 
   var profile;
-  var availableTags;
+  var availableTags = [];
 
   function getTopicsMenu() {
     $('#topicsMenuId').css("display", "inline");
@@ -56,6 +56,10 @@
     getUser(profile.getEmail(), function(userObject) {
       console.log("get keywords " + userObject.keywords);
       console.log("availableTags " + availableTags)
+      availableTags = [userObject.keywords];
+      $("#topicTypeId").autocomplete({
+        source: availableTags
+      });
     });
 
     // getKeywords(profile.getEmail(), function(userObject) {
@@ -196,21 +200,21 @@
         walk(data);
       });
     });
-
-    availableTags = [
-      "machine learning",
-      "neural networks",
-      "semantic web",
-      "machine vision",
-      "artificial intelligence",
-      "data mining",
-      "natural language processing",
-      "robotics",
-      "deep learning"
-    ];
-    $("#topicTypeId").autocomplete({
-      source: availableTags
-    });
+    //
+    // availableTags = [
+    //   "machine learning",
+    //   "neural networks",
+    //   "semantic web",
+    //   "machine vision",
+    //   "artificial intelligence",
+    //   "data mining",
+    //   "natural language processing",
+    //   "robotics",
+    //   "deep learning"
+    // ];
+    // $("#topicTypeId").autocomplete({
+    //   source: availableTags
+    // });
   });
   </script>
 </head>
