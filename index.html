@@ -59,6 +59,10 @@
       $("#topicTypeId").autocomplete({
         source: ka
       });
+      $("#topicSelectId").empty();
+      for (var k in ka) {
+        $("#topicSelectId").append('<option value=' + k + '>' + k + '</option>');
+      }
     });
 
     // getKeywords(profile.getEmail(), function(userObject) {
@@ -214,21 +218,7 @@
         walk(data);
       });
     });
-    //
-    // availableTags = [
-    //   "machine learning",
-    //   "neural networks",
-    //   "semantic web",
-    //   "machine vision",
-    //   "artificial intelligence",
-    //   "data mining",
-    //   "natural language processing",
-    //   "robotics",
-    //   "deep learning"
-    // ];
-    // $("#topicTypeId").autocomplete({
-    //   source: availableTags
-    // });
+
   });
   </script>
 </head>
@@ -253,7 +243,7 @@
     <legend>Select a Topic</legend>
     <div class="controlgroup">
       <select id="topicSelectId">
-        <option value="machine learning">machine learning</option>
+        <!-- <option value="machine learning">machine learning</option>
         <option value="neural networks">neural networks</option>
         <option value="semantic web">semantic web</option>
         <option value="machine vision">machine vision</option>
@@ -261,7 +251,7 @@
         <option value="data mining">data mining</option>
         <option value="natural language processing">natural language processing</option>
         <option value="robotics">robotics</option>
-        <option value="deep learning">deep learning</option>
+        <option value="deep learning">deep learning</option> -->
       </select>
       <button id="btnSelectId">Submit</button>
     </div>
