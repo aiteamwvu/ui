@@ -56,7 +56,7 @@
     getUser(profile.getEmail(), function(userObject) {
       console.log("get keywords " + userObject.keywords);
       availableTags = userObject.keywords.split(',');
-      console.log("keys " + availableTags)
+      console.log("keys " + availableTags);
       for (var key in userObject.keywords){
         console.log("key " + key);
       }
@@ -109,11 +109,17 @@
     $('#usernameId').text(profile.getName());
     getUser(profile.getEmail(), function(userObject) {
       $('#userSetupId').css("display", "inline");
+      keywords = cleanString(userObject.keywords);
       console.log("get keywords " + userObject.keywords);
       $('#dbKeywordsId').val(userObject.keywords);
     });
   }
-
+  function cleanString(keys) {
+    temp = keys.split(',');
+    for (var t in temp){
+      console.log("t " + t);
+    }
+  }
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
