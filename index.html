@@ -162,8 +162,16 @@
     $("#btnSelectId").click(function() {
       searchKey = $('#topicSelectId option:selected').val();
       console.log('selected ' + searchKey);
-      getNews(searchKey, function(userObject) {
-        console.log("news " + userObject);
+      getNews(searchKey, function(newsObj) {
+        // console.log("news " + newsObj);
+
+        for (var key in newsObj) {
+          if (obj.hasOwnProperty(key)) {
+            var val = obj[key];
+            console.log("news key " + val);
+          }
+        }
+
       });
     });
 
