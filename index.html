@@ -166,6 +166,7 @@
         // console.log("news " + newsObj);
         var counter = 0;
         var link = "", title = "", date = "";
+        $("#listId").empty();
         for (var key in newsObj) {
           counter++;
           if (counter == 1) {
@@ -177,6 +178,9 @@
           } else if (counter == 3) {
             date = newsObj[key];
             console.log("date : " + date);
+            $("#listId").append(
+              "<p><a href=\"" + link + "\">" +
+              title + "</a>" + date + "</p>");
           } else if (counter == 6) {
             counter = 0;
           }
@@ -215,19 +219,19 @@
   <div id="topicsMenuId">
   <fieldset>
     <legend>Select a Topic</legend>
-    <div class="controlgroup">
+
       <select id="topicSelectId"></select>
       <button id="btnSelectId">Select</button>
-    </div>
+
   </fieldset>
   <fieldset>
     <legend>Type a Topic</legend>
-    <div class="controlgroup">
+
       <div class="ui-widget">
-        <input id="topicTypeId" class="ui-textinput">
+        <input id="topicTypeId">
         <button id="btnTypeId">Select</button>
       </div>
-    </div>
+
   </fieldset>
   <fieldset>
     <legend>Topic List</legend>
