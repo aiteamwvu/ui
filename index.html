@@ -110,8 +110,14 @@
     getUser(profile.getEmail(), function(userObject) {
       $('#userSetupId').css("display", "inline");
       console.log("get keywords " + userObject.keywords);
+      var keys = cleanString(userObject.keywords);
       $('#dbKeywordsId').val(userObject.keywords);
     });
+  }
+
+  function cleanString(ks) {
+    var ta = ks.split(',');
+    console.log('ta ' + ta);
   }
 
   function signOut() {
