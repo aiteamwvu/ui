@@ -111,16 +111,22 @@
       $('#userSetupId').css("display", "inline");
       console.log("get keywords " + userObject.keywords);
       var keys = cleanString(userObject.keywords);
-      $('#dbKeywordsId').val(userObject.keywords);
+      $('#dbKeywordsId').val(keys);
     });
   }
 
   function cleanString(ks) {
     var ta = ks.toString().split(',');
+    var at = [];
     console.log('ta ' + ta);
     for (var t in ta){
       console.log("t " + ta[t].length);
+      if (ta[t].length > 0) {
+        at.push(ta[t]);
+        console.log("push " + ta[t]);
+      }
     }
+    return at;
   }
 
   function signOut() {
