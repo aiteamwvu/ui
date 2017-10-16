@@ -52,10 +52,14 @@
     setUser(profile.getEmail(), keys, function(userObject) {
       console.log("set keywords " + userObject.keywords);
     });
-
-    getKeywords(profile.getEmail(), function(userObject) {
-      console.log("get keywords " + userObject);
+    getUser(profile.getEmail(), function(userObject) {
+      console.log("get keywords " + userObject.keywords);
+      console.log("availableTags " + availableTags)
     });
+
+    // getKeywords(profile.getEmail(), function(userObject) {
+    //   console.log("get keywords " + userObject);
+    // });
 
   }
 
