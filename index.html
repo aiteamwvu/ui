@@ -51,7 +51,18 @@
 
     setUser(profile.getEmail(), keys, function(userObject) {
       console.log("set keywords " + userObject.keywords);
-    });   
+    });
+
+    getKeywords(profile.getEmail(), function(userObject) {
+      console.log("get keywords " + userObject);
+    });
+
+  }
+
+  function getKeywords(email, callback) {
+    $.getJSON('http://aiwvu.ml:5000/get_keywords?email=' + email + '&t=' + (new Date()).getTime(), function(data) {
+        callback(data);
+    });
   }
 
   function getUser(email, callback) {
