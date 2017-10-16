@@ -39,7 +39,7 @@
   <script>
 
   var profile;
-  var availableTags = [];
+  var searchKey;
 
   function getTopicsMenu() {
     $('#topicsMenuId').css("display", "inline");
@@ -154,11 +154,13 @@
     }
 
     $("#btnSelectId").click(function() {
-      console.log('selected ' + $('#topicSelectId option:selected').val());
+      searchKey = $('#topicSelectId option:selected').val();
+      console.log('selected ' + searchKey);
 
     });
     $("#btnTypeId").click(function() {
-      console.log('typed ' + $("#topicTypeId").val());
+      searchKey = $("#topicTypeId").val();
+      console.log('typed ' + searchKey);
 
     });
 
