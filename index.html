@@ -193,7 +193,28 @@
       searchKey = $("#topicTypeId").val();
       console.log('typed ' + searchKey);
       getNews(searchKey, function(userObject) {
-        console.log("news " + userObject);
+        // console.log("news " + newsObj);
+        var counter = 0;
+        var link = "", title = "", date = "";
+        $("#listId").empty();
+        for (var key in newsObj) {
+          counter++;
+          if (counter == 1) {
+            link = newsObj[key];
+            console.log("link : " + link);
+          } else if (counter == 2) {
+            title = newsObj[key];
+            console.log("title : " + title);
+          } else if (counter == 3) {
+            date = newsObj[key];
+            console.log("date : " + date);
+            $("#listId").append(
+              "<p><a href=\"" + link + "\">" +
+              title + "</a>" + date + "</p>");
+          } else if (counter == 6) {
+            counter = 0;
+          }
+        }
       });
     });
 
