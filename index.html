@@ -56,12 +56,9 @@
     getUser(profile.getEmail(), function(userObject) {
       console.log("get keywords " + userObject.keywords);
       availableTags = userObject.keywords.split(',');
-
-      for (var key in userObject.keyswords):
-        console.log("key " + key);
-
+      console.log("keys " + availableTags)
       $("#topicTypeId").autocomplete({
-        source: availableTags
+        source: keys
       });
     });
 
