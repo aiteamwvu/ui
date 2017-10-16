@@ -140,6 +140,32 @@
     $('#loginPromptId').css("display", "inline");
   }
 
+  function parseNews(news) {
+
+    var counter = 0;
+    var link = "", title = "", date = "";
+    $("#listId").empty();
+    for (var key in news) {
+      counter++;
+      if (counter == 1) {
+        link = news[key];
+        console.log("link : " + link);
+      } else if (counter == 2) {
+        title = news[key];
+        console.log("title : " + title);
+      } else if (counter == 3) {
+        date = news[key];
+        console.log("date : " + date);
+        $("#listId").append(
+          "<p><a href=\"" + link + "\">" +
+          title + "</a>" + date + "</p>");
+      } else if (counter == 6) {
+        counter = 0;
+      }
+    }
+
+  }
+
   $(document).ready(function() {
     $('#topicsMenuId').css("display", "none");
     $('#userSetupId').css("display", "none");
@@ -163,29 +189,7 @@
       searchKey = $('#topicSelectId option:selected').val();
       console.log('selected ' + searchKey);
       getNews(searchKey, function(newsObj) {
-        // console.log("news " + newsObj);
-        var counter = 0;
-        var link = "", title = "", date = "";
-        $("#listId").empty();
-        for (var key in newsObj) {
-          counter++;
-          if (counter == 1) {
-            link = newsObj[key];
-            console.log("link : " + link);
-          } else if (counter == 2) {
-            title = newsObj[key];
-            console.log("title : " + title);
-          } else if (counter == 3) {
-            date = newsObj[key];
-            console.log("date : " + date);
-            $("#listId").append(
-              "<p><a href=\"" + link + "\">" +
-              title + "</a>" + date + "</p>");
-          } else if (counter == 6) {
-            counter = 0;
-          }
-        }
-
+        parseNews(newsObj);
       });
     });
 
@@ -193,28 +197,7 @@
       searchKey = $("#topicTypeId").val();
       console.log('typed ' + searchKey);
       getNews(searchKey, function(newsObj) {
-        // console.log("news " + newsObj);
-        var counter = 0;
-        var link = "", title = "", date = "";
-        $("#listId").empty();
-        for (var key in newsObj) {
-          counter++;
-          if (counter == 1) {
-            link = newsObj[key];
-            console.log("link : " + link);
-          } else if (counter == 2) {
-            title = newsObj[key];
-            console.log("title : " + title);
-          } else if (counter == 3) {
-            date = newsObj[key];
-            console.log("date : " + date);
-            $("#listId").append(
-              "<p><a href=\"" + link + "\">" +
-              title + "</a>" + date + "</p>");
-          } else if (counter == 6) {
-            counter = 0;
-          }
-        }
+        parseNews(newsObj);
       });
     });
 
