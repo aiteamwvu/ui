@@ -54,7 +54,7 @@
     });
     getUser(profile.getEmail(), function(userObject) {
       console.log("get keywords " + userObject.keywords);
-      var ka = cleanKeywords(userObject.keywords);
+      var ka = cleanString(userObject.keywords);
       console.log("keys " + ka);
       $("#topicTypeId").autocomplete({
         source: ka
