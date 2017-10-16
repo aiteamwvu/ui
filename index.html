@@ -118,6 +118,9 @@
   function cleanString(ks) {
     var ta = ks.toString().split(',');
     console.log('ta ' + ta);
+    for (var t in ta){
+      console.log("t " + t);
+    }
   }
 
   function signOut() {
