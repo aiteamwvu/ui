@@ -46,16 +46,13 @@
     $('#userSetupId').css("display", "none");
     $('#loginPromptId').css("display", "none")
 
-
     keys = $('#newKeywordsId').val().split(',');
 
     setUser(profile.getEmail(), keys, function(userObject) {
       console.log("set keywords " + userObject.keywords);
     });
     getUser(profile.getEmail(), function(userObject) {
-      console.log("get keywords " + userObject.keywords);
       var ka = cleanString(userObject.keywords);
-      console.log("keys " + ka);
       $("#topicTypeId").autocomplete({
         source: ka
       });
@@ -64,11 +61,6 @@
         $("#topicSelectId").append('<option value=' + ka[k] + '>' + ka[k] + '</option>');
       }
     });
-
-    // getKeywords(profile.getEmail(), function(userObject) {
-    //   console.log("get keywords " + userObject);
-    // });
-
   }
 
   function getKeywords(email, callback) {
@@ -117,12 +109,9 @@
   function cleanString(ks) {
     var ta = ks.toString().split(',');
     var at = [];
-    console.log('ta ' + ta);
     for (var t in ta){
-      console.log("t " + ta[t].length);
       if (ta[t].length > 0) {
         at.push(ta[t]);
-        console.log("push " + ta[t]);
       }
     }
     return at;
@@ -150,43 +139,7 @@
     $('#userSetupId').css("display", "none");
     $('#loginPromptId').css("display", "inline");
 
-    function getFileName(choice) {
-      var result = "";
-      switch (choice) {
-        case "machine learning":
-          result = "machine_learning.json";
-          break;
-        case "neural networks":
-          result = "neural_networks.json";
-          break;
-        case "semantic web":
-          result = "semantic_web.json";
-          break;
-        case "machine vision":
-          result = "machine_vision.json";
-          break;
-        case "artificial intelligence":
-          result = "ai.json";
-          break;
-        case "data mining":
-          result = "data_mining.json";
-          break;
-        case "natural language processing":
-          result = "natural_language_processing.json";
-          break;
-        case "robotics":
-          result = "robotics.json";
-          break;
-        case "deep learning":
-          result = "deep_learning.json";
-          break;
-        default:
-      }
-      return "data/" + result;
-    }
-
     function walk(obj) {
-      $("#tempId").remove();
       $("#listId").append("<span id=\"tempId\"></span>");
       for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -201,22 +154,12 @@
     }
 
     $("#btnSelectId").click(function() {
-      $("#taListId").val($('#topicSelectId option:selected').val());
-      var fn = getFileName($('#topicSelectId option:selected').val());
-      console.log('filename ' + fn);
-      $.getJSON( fn, function(data) {
-        walk(data);
-      });
+      console.log('selected ' + $('#topicSelectId option:selected').val());
+
     });
-
     $("#btnTypeId").click(function() {
+      console.log('typed ' + $("#topicTypeId").val());
 
-      $("#taListId").val($("#topicTypeId").val());
-      var fn = getFileName($("#topicTypeId").val());
-      console.log('filename ' + fn);
-      $.getJSON( fn, function( data ) {
-        walk(data);
-      });
     });
 
   });
@@ -242,18 +185,8 @@
   <fieldset>
     <legend>Select a Topic</legend>
     <div class="controlgroup">
-      <select id="topicSelectId">
-        <!-- <option value="machine learning">machine learning</option>
-        <option value="neural networks">neural networks</option>
-        <option value="semantic web">semantic web</option>
-        <option value="machine vision">machine vision</option>
-        <option value="artificial intelligence">artificial intelligence</option>
-        <option value="data mining">data mining</option>
-        <option value="natural language processing">natural language processing</option>
-        <option value="robotics">robotics</option>
-        <option value="deep learning">deep learning</option> -->
-      </select>
-      <button id="btnSelectId">Submit</button>
+      <select id="topicSelectId"></select>
+      <button id="btnSelectId">Select</button>
     </div>
   </fieldset>
   <fieldset>
@@ -261,7 +194,7 @@
     <div class="controlgroup">
       <div class="ui-widget">
         <input id="topicTypeId" class="ui-textinput">
-        <button id="btnTypeId">Submit</button>
+        <button id="btnTypeId">Select</button>
       </div>
     </div>
   </fieldset>
