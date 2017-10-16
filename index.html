@@ -63,6 +63,12 @@
     });
   }
 
+  function index(keyword, callback) {
+    $.getJSON('http://aiwvu.ml:5000/set_news?q=' + keyword + '&t=' + (new Date()).getTime(), function(data) {
+        callback(data);
+    });
+  }
+
   function getKeywords(email, callback) {
     $.getJSON('http://aiwvu.ml:5000/get_keywords?email=' + email + '&t=' + (new Date()).getTime(), function(data) {
         callback(data);
@@ -156,12 +162,19 @@
     $("#btnSelectId").click(function() {
       searchKey = $('#topicSelectId option:selected').val();
       console.log('selected ' + searchKey);
+      index(searchKey, function(userObject) {
+        console.log("news " + userObject);
 
+      });
     });
+
     $("#btnTypeId").click(function() {
       searchKey = $("#topicTypeId").val();
       console.log('typed ' + searchKey);
+      index(searchKey, function(userObject) {
+        console.log("news " + userObject);
 
+      });
     });
 
   });
