@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ExperTwin</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script>
+
+    $(document).ready(function() {
+
+      $('#biblioFieldSetId').css("display", "inline");
+      $('#presenFieldSetId').css("display", "none");
+      $('#reviewFieldSetId').css("display", "none");
+      $('#redundFieldSetId').css("display", "none");
+      $('#ratingFieldSetId').css("display", "none");
+
+      $("#biblioMenuId").click(function() {
+        extraMenu('biblio');
+      });
+      $("#presenMenuId").click(function() {
+        extraMenu('presen');
+      });
+      $("#reviewMenuId").click(function() {
+        extraMenu('review');
+      });
+      $("#redundMenuId").click(function() {
+        extraMenu('redund');
+      });
+      $("#ratingMenuId").click(function() {
+        extraMenu('rating');
+      });
+
+    });
+    function extraMenu(option) {
+      $('#biblioFieldSetId').css("display", "none");
+      $('#presenFieldSetId').css("display", "none");
+      $('#reviewFieldSetId').css("display", "none");
+      $('#redundFieldSetId').css("display", "none");
+      $('#ratingFieldSetId').css("display", "none");
+
+      switch (option) {
+        case 'biblio':
+          $('#biblioFieldSetId').css("display", "inline");
+          break;
+        case 'presen':
+          $('#presenFieldSetId').css("display", "inline");
+          break;
+        case 'review':
+          $('#reviewFieldSetId').css("display", "inline");
+          break;
+        case 'redund':
+          $('#redundFieldSetId').css("display", "inline");
+          break;
+        case 'rating':
+          $('#ratingFieldSetId').css("display", "inline");
+          break;
+        default:
+      }
+    }
+  </script>
+</head>
+<body bgcolor="#9e9897">
+
+  <div>
+    <a id="biblioMenuId">Bibliography</a>
+    <a id="presenMenuId">Presentation</a>
+    <a id="reviewMenuId">Review</a>
+    <a id="redundMenuId">Redundancy</a>
+    <a id="ratingMenuId">Rating</a>
+  </div>
+
+<div class="widget">
+  <h1>ExperTwin</h1>
+  <div id="biblioFieldSetId">
+  <fieldset>
+    <legend>By Topic</legend>
+      <div class="ui-widget">
+        <input id="typeBibTopicId">
+        <button id="btnBibTopicId">Search</button>
+      </div>
+  </fieldset>
+  <fieldset>
+    <legend>By Document</legend>
+      <div class="ui-widget">
+        <input id="the-file-input" type="file" multiple>
+        <button id="btnBibDocumentId">Open</button>
+      </div>
+  </fieldset>
+  <fieldset>
+    <legend>Articles List</legend>
+      <p>article list</p>
+  </fieldset>
+  <fieldset>
+    <legend>Something</legend>
+    <div class="controlgroup-vertical">
+      <p>something here</p>
+    </div>
+  </fieldset>
+  </div>
+  <div id=presenFieldSetId>
+    <fieldset>
+      <legend>Select Presentation</legend>
+      <div class="ui-widget">
+        <input id="typePresenId">
+        <button id="btnPresenId">Search</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Articles List</legend>
+        <p>articles list</p>
+        <button id="btnPresenSaveId">Save Articles</button>
+    </fieldset>
+    <fieldset>
+      <legend>Article View</legend>
+        <p>article view</p>
+    </fieldset>
+  </div>
+  <div id=reviewFieldSetId>
+    <fieldset>
+      <legend>Select article</legend>
+      <div class="ui-widget">
+        <input id="typeReviewId">
+        <button id="btnReviewId">Search</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Article Content</legend>
+        <p>article content</p>
+    </fieldset>
+    <fieldset>
+      <legend>Review</legend>
+      <div class="ui-widget">
+        <textarea rows='4' cols='50'></textarea><br>
+        <button id="btnReviewId">Save</button>
+      </div>
+    </fieldset>
+  </div>
+  <div id=redundFieldSetId>
+    <fieldset>
+      <legend>Redundancy</legend>
+        <button id="btnReviewId">Start Redundancy Check</button>
+    </fieldset>
+    <fieldset>
+      <legend>Results</legend>
+        <p>redundancy results</p>
+    </fieldset>
+  </div>
+  <div id=ratingFieldSetId>
+    <fieldset>
+      <legend>Rating</legend>
+
+    </fieldset>
+  </div>
+</div>
+</body>
+</html>
